@@ -10,6 +10,7 @@ spring:
     tomcat.max-idle: 20
     tomcat.min-idle: 15
     validationQuery: SELECT 1
+    driver-class-name: com.mysql.jdbc.Driver
     jpa:
       properties:
         hibernate:
@@ -32,4 +33,4 @@ management:
 eureka:
   client:
     serviceUrl: 
-      defaultZone:  http://localhost:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/
