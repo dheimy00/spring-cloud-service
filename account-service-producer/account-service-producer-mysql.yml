@@ -12,23 +12,20 @@ spring:
         enabled: false
         
   datasource:
-    url: jdbc:mysql://localhost:3306/productsService?useUnicode=true&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: root
-    tomcat.max-wait: 20000
-    tomcat.max-active: 50
-    tomcat.max-idle: 20
-    tomcat.min-idle: 15
+    testWhileIdle: true
+    url: jdbc:mysql://localhost:3306/productsService?useUnicode=true&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
     validationQuery: SELECT 1
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    jpa:
-      properties:
-        hibernate:
-          dialect: org.hibernate.dialect.MySQL8Dialect
-          show-sql: true
-          format-sql: true
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
       hibernate:
-        ddl-auto: create
+        dialect: org.hibernate.dialect.MySQL8Dialect
+      max_allowed_packet: 2000
+    show-sql: true
 
 
 management:
