@@ -1,8 +1,18 @@
 server:
-  port: 8081
+  port: 8080
+  
 spring:
+
+  application:
+    name: product-service
+    
+  cloud:
+    config:
+      import-check:
+        enabled: false
+        
   datasource:
-    url: jdbc:mysql://localhost:3306/accountService?useUnicode=true&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+    url: jdbc:mysql://localhost:3306/productsService?useUnicode=true&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
     username: root
     password: root
     tomcat.max-wait: 20000
@@ -20,9 +30,10 @@ spring:
       hibernate:
         ddl-auto: update
 
+
 management:
   server:
-    port: 8080
+    port: 8084
   endpoints:
     web:
       exposure:
@@ -32,5 +43,9 @@ management:
       show-details: "always"
 eureka:
   client:
-    serviceUrl: 
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
       defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost
