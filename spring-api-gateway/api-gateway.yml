@@ -22,6 +22,17 @@ spring:
                 name: product-service
                 fallbackuri: forward:/productFallBack
 
+    gateway:
+      routes:
+        - id: order-service
+          uri: lb://order-service
+          predicates:
+            - Path=/api/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: order-service
+                fallbackuri: forward:/orderFallBack
 management:
   endpoints:
     web:
