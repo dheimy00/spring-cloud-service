@@ -21,9 +21,7 @@ spring:
               args:
                 name: product-service
                 fallbackuri: forward:/productFallBack
-
-    gateway:
-      routes:
+                
         - id: order-service
           uri: lb://order-service
           predicates:
