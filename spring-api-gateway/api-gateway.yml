@@ -31,6 +31,16 @@ spring:
               args:
                 name: order-service
                 fallbackuri: forward:/orderFallBack
+                
+        - id: inventory-service
+          uri: lb://inventory-service
+          predicates:
+            - Path=/api/inventories/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: inventory-service
+                fallbackuri: forward:/inventoryFallBack                
 management:
   endpoints:
     web:
