@@ -4,7 +4,7 @@ server:
 spring:
 
   application:
-    name: order-service
+    name: inventory-service
     
   cloud:
     config:
