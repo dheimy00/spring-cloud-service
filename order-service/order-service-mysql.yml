@@ -86,7 +86,7 @@ resilience4j:
 # Kafka Properties
   kafka:
     producer:
-      value-serializer: org.springframework.kafka.support.serializer.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       properties:
         spring:
           json:
