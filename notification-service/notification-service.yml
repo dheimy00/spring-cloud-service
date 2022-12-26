@@ -13,7 +13,11 @@ spring:
 
 # Kafka Properties
   kafka:
-    producer:
+    bootstrap-servers: localhost:9092
+    template:
+      default-topic: notificationTopic  
+    consumer:
+      group-id: notificationId
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       properties:
         spring:
@@ -21,9 +25,7 @@ spring:
             type:
               mapping: event:io.com.notification.OrderPlacedEvent
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-    template:
-      default-topic: notificationTopic
-    bootstrap-servers: localhost:9092
+
     
 eureka:
   client:
