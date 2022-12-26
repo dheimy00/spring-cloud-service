@@ -85,4 +85,14 @@ resilience4j:
 
 # Kafka Properties
   kafka:
-    bootstrap-servers: localhost:9092        
+    producer:
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring:
+          json:
+            type:
+              mapping: event:com.programmingtechie.orderservice.event.OrderPlacedEvent
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+    template:
+      default-topic: notificationTopic
+    bootstrap-servers: localhost:9092   
