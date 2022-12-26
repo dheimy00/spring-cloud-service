@@ -25,7 +25,7 @@ spring:
         - id: order-service
           uri: lb://order-service
           predicates:
-            - Path=/api/**
+            - Path=/api/orders/**
           filters:
             - name: CircuitBreaker
               args:
@@ -35,7 +35,7 @@ spring:
         - id: inventory-service
           uri: lb://inventory-service
           predicates:
-            - Path=/api/**
+            - Path=/api/inventories/**
           filters:
             - name: CircuitBreaker
               args:
