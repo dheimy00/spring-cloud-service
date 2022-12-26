@@ -81,3 +81,8 @@ resilience4j:
       inventory:
         max-attempts: 3
         wait-duration: 5s        
+
+
+# Kafka Properties
+  kafka:
+    bootstrap-servers: localhost:9092        
