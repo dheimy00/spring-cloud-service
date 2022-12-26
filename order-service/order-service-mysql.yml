@@ -91,7 +91,7 @@ resilience4j:
         spring:
           json:
             type:
-              mapping: event:com.programmingtechie.orderservice.event.OrderPlacedEvent
+              mapping: event:io.com.orders.event.OrderPlacedEvent
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
     template:
       default-topic: notificationTopic
