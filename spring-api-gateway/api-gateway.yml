@@ -40,7 +40,20 @@ spring:
             - name: CircuitBreaker
               args:
                 name: inventory-service
-                fallbackuri: forward:/inventoryFallBack                
+                fallbackuri: forward:/inventoryFallBack
+                
+        - id: discovery-service
+          uri: http://localhost:8761
+          predicates:
+            - Path=/eureka/web
+          filters:
+            - SetPath=/           
+
+        - id: discovery-service
+          uri: http://localhost:8761
+          predicates:
+            - Path=/eureka/**
+            
 management:
   endpoints:
     web:
