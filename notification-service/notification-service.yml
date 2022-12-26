@@ -18,13 +18,13 @@ spring:
       default-topic: notificationTopic  
     consumer:
       group-id: notificationId
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
         spring:
           json:
             type:
               mapping: event:io.com.notification.OrderPlacedEvent
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
 
     
 eureka:
