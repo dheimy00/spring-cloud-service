@@ -32,11 +32,11 @@ spring:
           uri: lb://order-service
           predicates:
             - Path=/api/orders/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: order-service
-                fallbackuri: forward:/orderFallBack
+#          filters:
+#            - name: CircuitBreaker
+#              args:
+#                name: order-service
+#                fallbackuri: forward:/orderFallBack
                                 
         - id: discovery-service
           uri: http://localhost:8761
