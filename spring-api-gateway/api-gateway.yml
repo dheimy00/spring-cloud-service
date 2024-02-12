@@ -56,21 +56,7 @@ spring:
           uri: http://localhost:8761
           predicates:
             - Path=/eureka/**
-            
-management:
-  endpoints:
-    web:
-      exposure:
-        include: hystrix.stream
-
-hystrix:
-  command:
-    fallbackcmd:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 5000
-    
+               
 
 eureka:
   client:
